@@ -1,24 +1,45 @@
+// import PropTypes from "prop-types";
+
+// const PokemonCard = ({ pokomon }) => {
+//   PokemonCard.propTypes = {
+//     pokomon: PropTypes.shape({
+//       name: PropTypes.string.isRequired,
+//       imgSrc: PropTypes.string,
+//     }),
+//   };
+//   return (
+//     <div>
+//       {pokomon.imgSrc ? (
+//         <img src={pokomon.imgSrc} alt={pokomon.name} />
+//       ) : (
+//         <p>???</p>
+//       )}
+//       <figcaption>{pokomon.name}</figcaption>
+//     </div>
+//   );
+// };
+
+// export default PokemonCard;
 import PropTypes from "prop-types";
-function PokemonCard(props) {
-  console.log(props);
-  // const pokomon = pokemonList[0];
-  // const { name, imgSrc } = pokomon;
+
+const PokemonCard = ({ pokemon }) => {
+  PokemonCard.propTypes = {
+    pokemon: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      imgSrc: PropTypes.string,
+    }),
+  };
+
   return (
-    <div>
-      {props.pokomon.imgSrc ? (
-        <img src={props.pokomon.imgSrc} alt={props.pokomon.name} />
+    <figure>
+      {pokemon.imgSrc ? (
+        <img src={pokemon.imgSrc} alt={pokemon.name} />
       ) : (
         <p>???</p>
       )}
-      <figcaption>{props.pokomon.name}</figcaption>
-    </div>
+      <figcaption>{pokemon.name}</figcaption>
+    </figure>
   );
-}
-
-PokemonCard.propTypes = {
-  pokomon: PropTypes.shape({
-    name: PropTypes.number.isRequired,
-    imgSrc: PropTypes.imgae,
-  }),
 };
+
 export default PokemonCard;
