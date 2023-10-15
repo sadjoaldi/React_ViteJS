@@ -1,64 +1,3 @@
-// import { useState } from "react";
-// import "./App.css";
-// import PokemonCard from "./Components/PokemonCard";
-
-// const pokemonList = [
-//   {
-//     name: "bulbasaur",
-//     imgSrc:
-//       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-//   },
-//   {
-//     name: "charmander",
-//     imgSrc:
-//       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
-//   },
-//   {
-//     name: "squirtle",
-//     imgSrc:
-//       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
-//   },
-//   {
-//     name: "pikachu",
-//     imgSrc:
-//       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
-//   },
-//   {
-//     name: "mew",
-//   },
-// ];
-
-// function App() {
-//   const [pokomonIndex, setPokomonIndex] = useState(0);
-
-//   const handleClickprcd = () => {
-//     pokomonIndex > 0
-//       ? setPokomonIndex(pokomonIndex - 1)
-//       : "Il y a bien un précédent";
-//   };
-//   const handleClickpsut = () => {
-//     pokomonIndex < pokemonList.length - 1
-//       ? setPokomonIndex(pokemonList + 1)
-//       : "Il y a bien un suivant";
-//   };
-
-//   return (
-//     <div>
-//       <PokemonCard pokomon={pokemonList[pokomonIndex]} />
-//       <button onClick={handleClickprcd} disabled={pokomonIndex === 0}>
-//         Précédent
-//       </button>
-//       <button
-//         onClick={handleClickpsut}
-//         disabled={pokomonIndex === pokemonList.length - 1}
-//       >
-//         Suivant
-//       </button>
-//     </div>
-//   );
-// }
-
-// export default App;
 import "./App.css";
 import NavBar from "./Components/NavBar";
 import PokemonCard from "./components/PokemonCard";
@@ -66,49 +5,45 @@ import { useState } from "react";
 
 const pokemonList = [
   {
+    id: 0,
     name: "bulbasaur",
     imgSrc:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
   },
   {
+    id: 1,
     name: "charmander",
     imgSrc:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
   },
   {
+    id: 2,
     name: "squirtle",
     imgSrc:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
   },
   {
+    id: 3,
     name: "pikachu",
     imgSrc:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
   },
   {
+    id: 4,
     name: "mew",
   },
 ];
 
 function App() {
   const [pokemonIndex, setPokemonIndex] = useState(0);
-  const handleClickpsut = () => {
-    if (pokemonIndex < pokemonList.length - 1)
-      setPokemonIndex(pokemonIndex + 1);
-  };
-  const handleClickprcd = () => {
-    if (pokemonIndex > 0) {
-      setPokemonIndex(pokemonIndex - 1);
-    }
-  };
 
   return (
     <>
       <NavBar
+        key={pokemonList.id}
         pokemonIndex={pokemonIndex}
-        handleClickpsut={handleClickpsut}
-        handleClickprcd={handleClickprcd}
         pokemonList={pokemonList}
+        changPok={setPokemonIndex}
       />
       <PokemonCard pokemon={pokemonList[pokemonIndex]} />
     </>

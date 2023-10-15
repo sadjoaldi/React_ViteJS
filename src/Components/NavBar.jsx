@@ -1,27 +1,17 @@
 import PropTypes from "prop-types";
-const NavBar = ({
-  pokemonIndex,
-  handleClickprcd,
-  handleClickpsut,
-  pokemonList,
-}) => {
+const NavBar = ({ changPok, pokemonList }) => {
   NavBar.propTypes = {
-    pokemonIndex: PropTypes.number.isRequired,
-    handleClickprcd: PropTypes.func.isRequired,
-    handleClickpsut: PropTypes.func.isRequired,
     pokemonList: PropTypes.array.isRequired,
+    changPok: PropTypes.func.isRequired,
   };
+
   return (
     <div>
-      <button onClick={handleClickprcd} disabled={pokemonIndex === 0}>
-        Précédent
-      </button>
-      <button
-        onClick={handleClickpsut}
-        disabled={pokemonIndex === pokemonList.length - 1}
-      >
-        Suivant
-      </button>
+      {pokemonList.map((podex) => (
+        <button key={podex.id} onClick={() => changPok(podex.id)}>
+          {podex.name}
+        </button>
+      ))}
     </div>
   );
 };
